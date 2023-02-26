@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+  admin:
+    container_name: admin
+    image: admin
+    build: .
+    ports:
+      - 3000:80
+
+networks:
+  default:
+    external:
+      name: iodash-net

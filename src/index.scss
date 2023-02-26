@@ -1,0 +1,16 @@
+@import url("react-toastify/dist/ReactToastify.css");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  max-width: 100%;
+  height: 100%;
+}
+
+.swiper-wrapper {
+  display: flex;
+  align-items: center;
+}
