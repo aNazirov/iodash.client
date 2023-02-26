@@ -56,6 +56,7 @@ export const CreateCategory: React.FC<Props> = ({ close }) => {
           <CInput
             name="position"
             title="Position"
+            type="number"
             placeholder="Position"
             control={control}
             error={errors.position}

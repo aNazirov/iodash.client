@@ -61,6 +61,7 @@ export const EditCategory: React.FC<Props> = ({ close }) => {
             name="position"
             title="Position"
             placeholder="Position"
+            type="number"
             defaultValue={category?.position}
             loading={!category}
             control={control}
