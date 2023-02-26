@@ -1,9 +1,9 @@
 version: "3.7"
 
 services:
-  admin:
-    container_name: admin
-    image: admin
+  client:
+    container_name: client
+    image: client
     build: .
     ports:
       - 3000:80
