@@ -1,4 +1,10 @@
-import { CInput, CTextarea, Photo, SlideoversFoot, Spinner } from "core/components/shared";
+import {
+  CInput,
+  CTextarea,
+  Photo,
+  SlideoversFoot,
+  Spinner,
+} from "core/components/shared";
 import { CSearchSelectMulti } from "core/components/shared/CSearchSelectMulti";
 import { createService, filesUpload } from "core/services/index";
 import { useAppDispatch } from "core/store/hooks";
@@ -131,8 +137,8 @@ export const CreateLesson: React.FC<Props> = ({ close }) => {
       </div>
 
       <div className="mt-3">
-        {filePreview ? (
-          <p>{filePreview}</p>
+        {file ? (
+          <p>{file.name}</p>
         ) : (
           <div className="block text-sm font-medium text-gray-700">File</div>
         )}
@@ -158,7 +164,7 @@ export const CreateLesson: React.FC<Props> = ({ close }) => {
             id="upload-treiler"
             type="file"
             accept="file/*"
-            className="w-0"
+            className="hidden"
             disabled={!!filePreview}
             onChange={imageUpload(setFilePreview, setFile)}
           />

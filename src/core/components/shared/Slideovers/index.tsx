@@ -1,7 +1,7 @@
 import { Dialog, Transition } from "@headlessui/react";
-import React, { useContext } from "react";
 import { AppContext } from "core/utils/contexts";
 import { SlideoverModes } from "core/utils/enums";
+import React, { useContext } from "react";
 import { SlideoversHead } from "./head";
 export * from "./foot";
 
@@ -41,7 +41,7 @@ export const SlideOvers: React.FC<Props> = ({
         static
         className="inset-0 overflow-hidden"
         open={open}
-        onClose={close}
+        onClose={() => {}}
       >
         <div className="inset-0 overflow-hidden">
           <div className="fixed z-10 inset-y-0 right-0 pl-0 max-w-full flex sm:pl-16">
