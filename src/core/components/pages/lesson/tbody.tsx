@@ -61,6 +61,9 @@ export const LessonTbody: React.FC<Props> = ({ path }) => {
               {x.tags?.map((x) => x.title).join(", ")}
             </td>
             <td className="px-6 py-3.5 whitespace-nowrap text-sm font-medium text-gray-900">
+              {x.technologies?.map((x) => x.title).join(", ")}
+            </td>
+            <td className="px-6 py-3.5 whitespace-nowrap text-sm font-medium text-gray-900">
               {x.price}
             </td>
             <td className="flex justify-end px-6 py-3.5 whitespace-nowrap text-right text-sm font-medium space-x-4">

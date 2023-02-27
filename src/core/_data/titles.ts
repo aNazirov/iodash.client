@@ -56,6 +56,13 @@ export const sidebarNavigation = [
     current: false,
   },
   {
+    name: "Technologies",
+    href: "/technologies",
+    icon: ColorSwatchIcon,
+    permissions: [RoleType.Admin],
+    current: false,
+  },
+  {
     name: "Users",
     href: "/users",
     icon: UserIcon,
@@ -66,12 +73,14 @@ export const sidebarNavigation = [
 
 export const CategoryTableNames = ["Title", "position", "Show", THead.edit];
 export const TagTableNames = ["Title", THead.edit];
+export const TechnologyTableNames = ["Title", THead.edit];
 
 export const UserTableNames = ["Title", "Email", "Role", THead.edit];
 export const LessonTableNames = [
   "Title",
   "Categories",
   "Tags",
+  "Technologies",
   "Price",
   THead.edit,
 ];

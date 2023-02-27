@@ -1,23 +1,24 @@
-import { XIcon } from "@heroicons/react/outline";
-import { ArchiveIcon, CheckIcon, PencilIcon } from "@heroicons/react/solid";
+import { ArchiveIcon, PencilIcon } from "@heroicons/react/solid";
 import { PrivateComponent, SlideOvers } from "core/components/shared";
 import { MDelete } from "core/components/shared/MDelete";
 import { removeService } from "core/services/global.service";
-import { getAll, setCategory } from "core/store/category/category.thunks";
 import { useAppDispatch, useAppSelector } from "core/store/hooks";
+import { getAll, setTechnology } from "core/store/technology/technology.thunks";
 import { AppContext } from "core/utils/contexts";
 import { RoleType, SlideoverModes } from "core/utils/enums";
 import { classNames } from "core/utils/index";
-import { CreateCategory } from "pages/category/create";
-import { EditCategory } from "pages/category/edit";
+import { CreateTechnology } from "pages/technology/create";
+import { EditTechnology } from "pages/technology/edit";
 import { useContext, useState } from "react";
 
 interface Props {
   path: string[];
 }
 
-export const CategoryTbody: React.FC<Props> = ({ path }) => {
-  const { category, categories } = useAppSelector((state) => state.categories);
+export const TechnologyTbody: React.FC<Props> = ({ path }) => {
+  const { technology, technologies } = useAppSelector(
+    (state) => state.technologies
+  );
   const { setOpen, setMode } = useContext(AppContext);
 
   const [dOPen, setDOpen] = useState(false);
@@ -27,38 +28,28 @@ export const CategoryTbody: React.FC<Props> = ({ path }) => {
   const access = path.length < 2;
 
   const handleDelete = () => {
-    removeService(category!.id, "category").then(() => {
+    removeService(technology!.id, "technology").then(() => {
       dispatch(getAll());
-      dispatch(setCategory());
+      dispatch(setTechnology());
     });
   };
 
   const close = () => {
     setOpen(false);
     setMode(SlideoverModes.none);
-    dispatch(setCategory());
+    dispatch(setTechnology());
   };
 
   return (
     <>
       <tbody>
-        {categories.map((x, idx) => (
+        {technologies.map((x, idx) => (
           <tr
             key={x.id}
             className={classNames(idx % 2 === 0 ? "bg-white" : "bg-gray-50")}
           >
             <td className="px-6 py-3.5 whitespace-nowrap text-sm font-medium text-gray-900 cursor-pointer">
               {x.title}
-            </td>
-            <td className="px-6 py-3.5 whitespace-nowrap text-sm font-medium text-gray-900 cursor-pointer">
-              {x.position}
-            </td>
-            <td className="px-6 py-3.5 whitespace-nowrap text-sm font-medium text-gray-900 cursor-pointer">
-              {x.show ? (
-                <CheckIcon className="h-5 w-5 text-blue-500" />
-              ) : (
-                <XIcon className="h-5 w-5 text-black" />
-              )}
             </td>
             <td className="flex justify-end px-6 py-3.5 whitespace-nowrap text-right text-sm font-medium space-x-4">
               <PrivateComponent operation={accessRoles}>
@@ -70,7 +61,7 @@ export const CategoryTbody: React.FC<Props> = ({ path }) => {
                           e.stopPropagation();
                           setOpen(true);
                           setMode(SlideoverModes.edit);
-                          dispatch(setCategory(x));
+                          dispatch(setTechnology(x));
                         }}
                         className="text-gray-600 hover:text-blue-900 cursor-pointer"
                       >
@@ -83,7 +74,7 @@ export const CategoryTbody: React.FC<Props> = ({ path }) => {
                         onClick={(e) => {
                           e.stopPropagation();
                           setDOpen(true);
-                          dispatch(setCategory(x));
+                          dispatch(setTechnology(x));
                         }}
                         className="text-gray-600 hover:text-blue-900 cursor-pointer"
                       >
@@ -99,12 +90,12 @@ export const CategoryTbody: React.FC<Props> = ({ path }) => {
       </tbody>
 
       <PrivateComponent operation={accessRoles}>
-        {category && (
+        {technology && (
           <MDelete
             handleDelete={handleDelete}
             open={dOPen}
             setOpen={setDOpen}
-            data={{ id: category.id, name: category.title }}
+            data={{ id: technology.id, name: technology.title }}
           />
         )}
       </PrivateComponent>
@@ -112,10 +103,10 @@ export const CategoryTbody: React.FC<Props> = ({ path }) => {
       <PrivateComponent operation={accessRoles}>
         {access && (
           <SlideOvers
-            title={category?.title || "Category"}
+            title={technology?.title || "Technology"}
             close={close}
-            Edit={EditCategory}
-            Create={CreateCategory}
+            Edit={EditTechnology}
+            Create={CreateTechnology}
           />
         )}
       </PrivateComponent>

@@ -42,10 +42,15 @@ export interface ICategory {
   show: boolean;
 }
 
-export interface ITag {
+export interface ITechnology {
   id: number;
   title: string;
   icon: IFile;
+}
+
+export interface ITag {
+  id: number;
+  title: string;
 }
 
 export interface ISubscriptionType {
@@ -67,6 +72,7 @@ export interface ILesson {
   price: number;
   categories: ICategory[];
   tags: ITag[];
+  technologies: ITag[];
 }
 
 export interface IUser {

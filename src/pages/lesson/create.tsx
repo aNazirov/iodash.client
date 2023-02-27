@@ -24,6 +24,7 @@ type FormData = {
   genders: Gender[];
   categories: number[];
   tags: number[];
+  technologies: number[];
   price: number;
 };
 
@@ -132,6 +133,21 @@ export const CreateLesson: React.FC<Props> = ({ close }) => {
             defaultValue={[]}
             control={control}
             error={errors["tags"]}
+          />
+        </div>
+      </div>
+
+      <div className="mt-3 flex items-center gap-3 flex-col sm:flex-row">
+        <div className="w-full">
+          <CSearchSelectMulti
+            name="technologies"
+            required={false}
+            title="Technologies"
+            placeholder="Technologies"
+            index="technologies"
+            defaultValue={[]}
+            control={control}
+            error={errors["technologies"]}
           />
         </div>
       </div>

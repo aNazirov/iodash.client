@@ -10,6 +10,7 @@ import { globalReducer } from "./global/global.slices";
 import { lessonsReducer } from "./lesson/lesson.slices";
 import { subscriptionTypesReducer } from "./subscription-type/subscription-type.slices";
 import { tagsReducer } from "./tag/tag.slices";
+import { technologiesReducer } from "./technology/technology.slices";
 import { usersReducer } from "./user/user.slices";
 
 // export type RootState = ReturnType<typeof combinedReducer>;
@@ -21,6 +22,7 @@ const State = {
   users: usersReducer,
   lessons: lessonsReducer,
   subscriptionTypes: subscriptionTypesReducer,
+  technologies: technologiesReducer,
 };
 
 export const appReducer = combineReducers(State);

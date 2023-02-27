@@ -1,16 +1,20 @@
 import { FilterIcon } from "@heroicons/react/solid";
 import { Table } from "core/components/pages/table";
-import { UserTbody } from "core/components/pages/user";
+import { TechnologyTbody } from "core/components/pages/technology";
 import { CInput } from "core/components/shared";
 import { useAppDispatch, useAppSelector } from "core/store/hooks";
-import { getAll, setUsers } from "core/store/user/user.thunks";
-import { UserTableNames } from "core/_data/titles";
+import {
+  getAll,
+  setTechnologies,
+  setTechnology,
+} from "core/store/technology/technology.thunks";
+import { TechnologyTableNames } from "core/_data/titles";
 import { MutableRefObject, useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 
 interface Props {}
 
-export const Users: React.FC<Props> = () => {
+export const Technologies: React.FC<Props> = () => {
   const dispatch = useAppDispatch();
 
   const [page, setPage] = useState(1);
@@ -20,11 +24,12 @@ export const Users: React.FC<Props> = () => {
     dispatch(getAll());
 
     return () => {
-      dispatch(setUsers());
+      dispatch(setTechnology());
+      dispatch(setTechnologies());
     };
   }, [dispatch]);
 
-  const { count } = useAppSelector((state) => state.users);
+  const { count } = useAppSelector((state) => state.tags);
 
   const getMore = (skip: number) => {
     return dispatch(getAll(skip, filter.current));
@@ -34,10 +39,10 @@ export const Users: React.FC<Props> = () => {
     <>
       <Filter params={filter} setPage={setPage} />
       <Table
-        tableNames={UserTableNames}
+        tableNames={TechnologyTableNames}
         page={page}
         setPage={setPage}
-        tBody={UserTbody}
+        tBody={TechnologyTbody}
         getMore={getMore}
         count={count}
       />
@@ -77,25 +82,13 @@ const Filter: React.FC<FilterProps> = ({ params, setPage }) => {
           onSubmit={handleSubmit(filter)}
         >
           <div className="col-span-full flex flex-col sm:flex-row gap-3">
-            <div className="w-full sm:w-6/12">
+            <div className="w-full sm:w-2/12">
               <CInput
-                name="search"
+                name="title"
                 required={false}
                 control={control}
-                title="Поиск"
-                error={errors["search"]}
-              />
-            </div>
-
-            <div className="w-full sm:w-6/12">
-              <CInput
-                name="active"
-                type="checkbox"
-                required={false}
-                control={control}
-                className=" "
-                title="Активные"
-                error={errors["active"]}
+                title="Title"
+                error={errors["title"]}
               />
             </div>
           </div>

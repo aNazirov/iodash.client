@@ -50,7 +50,7 @@ export const ShowLesson: React.FC<Props> = () => {
           <div>
             <div className="flex justify-between items-center text-lg font-medium text-black">
               <div className="flex items-center gap-2 border-b-2 border-blue-600">
-                Основная информация{" "}
+                General info{" "}
                 <span
                   className="cursor-pointer"
                   onClick={() => setShowInfo(!showInfo)}
@@ -85,6 +85,16 @@ export const ShowLesson: React.FC<Props> = () => {
                   <div className="text-sm font-medium text-gray-500">Tags</div>
                   <div className="mt-1 text-sm text-gray-900">
                     {lesson.tags?.map((x) => x.title).join(", ") || "----"}
+                  </div>
+                </div>
+
+                <div className="sm:col-span-1">
+                  <div className="text-sm font-medium text-gray-500">
+                    Technologies
+                  </div>
+                  <div className="mt-1 text-sm text-gray-900">
+                    {lesson.technologies?.map((x) => x.title).join(", ") ||
+                      "----"}
                   </div>
                 </div>
 

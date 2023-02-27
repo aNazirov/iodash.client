@@ -100,7 +100,7 @@ const DesktopMenu: React.FC = () => {
                 className="-mx-1 bg-white p-1 flex gap-2 cursor-pointer items-center rounded-full text-gray-400 hover:text-gray-500"
                 onClick={create}
               >
-                <span className="text-sm">Добавить {page}</span>
+                <span className="text-sm">Add {page}</span>
                 <PlusCircleIcon className="h-6 w-6" aria-hidden="true" />
               </span>
             </PrivateComponent>

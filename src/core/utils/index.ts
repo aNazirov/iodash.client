@@ -145,6 +145,8 @@ export const pageSwitch = (path: string[]) => {
       return "Categories";
     case "tags":
       return "Tags";
+    case "technologies":
+      return "Technologies";
     case "users":
       return "Users";
     case "lessons":

@@ -1,9 +1,7 @@
-import { CInput, Photo, SlideoversFoot } from "core/components/shared";
-import { createService, filesUpload } from "core/services/index";
+import { CInput, SlideoversFoot } from "core/components/shared";
+import { createService } from "core/services/index";
 import { useAppDispatch } from "core/store/hooks";
 import { getAll } from "core/store/tag/tag.thunks";
-import { formatData } from "core/utils";
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 interface Props {
@@ -21,18 +19,10 @@ export const CreateTag: React.FC<Props> = ({ close }) => {
     control,
   } = useForm<FormData>();
 
-  const [icon, setIcon] = useState<null | File>(null);
-
   const dispatch = useAppDispatch();
 
   const submit = async (data: FormData) => {
-    let iconId = undefined;
-
-    if (icon) {
-      iconId = (await filesUpload(formatData({ files: [icon] })))[0].id;
-    }
-
-    return createService({ ...data, iconId }, "tag").then(({ title }) => {
+    return createService(data, "tag").then(({ title }) => {
       dispatch(getAll());
       close();
     });
@@ -44,12 +34,6 @@ export const CreateTag: React.FC<Props> = ({ close }) => {
       className="h-full flex flex-col"
       autoComplete="off"
     >
-      <div className="flex gap-3 justify-between">
-        <div className="mt-1 ">
-          <Photo title="Icon" setFile={setIcon} previewClassName="h-36" />
-        </div>
-      </div>
-
       <div className="flex gap-3 mt-3">
         <div className="w-full">
           <CInput

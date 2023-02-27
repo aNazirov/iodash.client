@@ -8,6 +8,7 @@ import { Lessons } from "pages/lesson";
 import { ShowLesson } from "pages/lesson/show";
 import { SubscriptionTypes } from "pages/subscription-type";
 import { Tags } from "pages/tag";
+import { Technologies } from "pages/technology";
 import { Users } from "pages/user";
 import { ShowUser } from "pages/user/show";
 import React, { useState } from "react";
@@ -49,6 +50,15 @@ export const Layout: React.FC = () => {
                     element={
                       <PrivateRoute operation={[RoleType.Admin]}>
                         <Tags />
+                      </PrivateRoute>
+                    }
+                  />
+
+                  <Route
+                    path="/technologies"
+                    element={
+                      <PrivateRoute operation={[RoleType.Admin]}>
+                        <Technologies />
                       </PrivateRoute>
                     }
                   />

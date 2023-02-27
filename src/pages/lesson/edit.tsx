@@ -23,6 +23,7 @@ type FormData = {
   description: string;
   categories: number[];
   tags: number[];
+  technologies: number[];
   price: number;
 };
 
@@ -160,6 +161,24 @@ export const EditLesson: React.FC<Props> = ({ close }) => {
             }))}
             control={control}
             error={errors["tags"]}
+          />
+        </div>
+      </div>
+
+      <div className="mt-3 flex items-center gap-3 flex-col sm:flex-row">
+        <div className="w-full">
+          <CSearchSelectMulti
+            name="technologies"
+            required={false}
+            title="Technologies"
+            placeholder="Technologies"
+            index="technologies"
+            defaultValue={lesson?.technologies.map((x) => ({
+              value: x.id,
+              label: x.title,
+            }))}
+            control={control}
+            error={errors["technologies"]}
           />
         </div>
       </div>

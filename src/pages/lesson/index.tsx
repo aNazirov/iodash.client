@@ -123,7 +123,7 @@ const Filter: React.FC<FilterProps> = ({ params, setPage }) => {
               className="transition duration-300 ease-in-out rounded-3xl inline-flex justify-center py-2 px-4 border border-transparent text-sm font-medium text-white bg-blue-500 hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
               disabled={isSubmitting}
             >
-              Фильтровать
+              Filter
             </button>
           </div>
         </form>
@@ -133,7 +133,7 @@ const Filter: React.FC<FilterProps> = ({ params, setPage }) => {
             className="flex items-center gap-3 bg-white p-1 cursor-pointer rounded-full text-gray-400 hover:text-gray-500"
             onClick={() => setFilterOpen(!filterOpen)}
           >
-            <span>Фильтр</span>
+            <span>Filter</span>
             <FilterIcon className="h-6 w-6" aria-hidden="true" />
           </span>
         </div>
