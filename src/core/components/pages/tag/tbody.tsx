@@ -101,7 +101,7 @@ export const TagTbody: React.FC<Props> = ({ path }) => {
       <PrivateComponent operation={accessRoles}>
         {access && (
           <SlideOvers
-            title={tag?.title || "Материал"}
+            title={tag?.title || "Tag"}
             close={close}
             Edit={EditTag}
             Create={CreateTag}

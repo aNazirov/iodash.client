@@ -1,7 +1,7 @@
 import { CInput, Photo, SlideoversFoot } from "core/components/shared";
 import { createService, filesUpload } from "core/services/index";
 import { useAppDispatch } from "core/store/hooks";
-import { getAll } from "core/store/tag/tag.thunks";
+import { getAll } from "core/store/technology/technology.thunks";
 import { formatData } from "core/utils";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
