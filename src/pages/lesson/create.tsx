@@ -1,4 +1,4 @@
-import { CInput, Photo, SlideoversFoot, Spinner } from "core/components/shared";
+import { CInput, CTextarea, Photo, SlideoversFoot, Spinner } from "core/components/shared";
 import { CSearchSelectMulti } from "core/components/shared/CSearchSelectMulti";
 import { createService, filesUpload } from "core/services/index";
 import { useAppDispatch } from "core/store/hooks";
@@ -84,6 +84,18 @@ export const CreateLesson: React.FC<Props> = ({ close }) => {
             placeholder="Title"
             control={control}
             error={errors.title}
+          />
+        </div>
+      </div>
+
+      <div className="flex gap-3 mt-3">
+        <div className="w-full">
+          <CTextarea
+            name="description"
+            title="Description"
+            placeholder="Description"
+            control={control}
+            error={errors.description}
           />
         </div>
       </div>
