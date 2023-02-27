@@ -11,6 +11,7 @@ interface Props {
 type FormData = {
   title: string;
   description: string;
+  points: string;
   months: number;
   price: number;
   downloadsPerDay: number;
@@ -58,6 +59,18 @@ export const CreateSubscriptionType: React.FC<Props> = ({ close }) => {
             placeholder="Description"
             control={control}
             error={errors.description}
+          />
+        </div>
+      </div>
+
+      <div className="flex gap-3 mt-3">
+        <div className="w-full">
+          <CTextarea
+            name="points"
+            title="Points"
+            placeholder="Points"
+            control={control}
+            error={errors.points}
           />
         </div>
       </div>

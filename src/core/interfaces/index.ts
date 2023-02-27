@@ -52,6 +52,7 @@ export interface ISubscriptionType {
   id: number;
   title: string;
   description?: string;
+  points?: string;
   months: number;
   price: number;
   downloadsPerDay: number;

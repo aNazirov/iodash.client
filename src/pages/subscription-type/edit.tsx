@@ -11,6 +11,7 @@ interface Props {
 type FormData = {
   title: string;
   description: string;
+  points: string;
   months: number;
   price: number;
   downloadsPerDay: number;
@@ -67,6 +68,20 @@ export const EditSubscriptionType: React.FC<Props> = ({ close }) => {
             loading={!subscriptionType}
             control={control}
             error={errors.description}
+          />
+        </div>
+      </div>
+
+      <div className="flex gap-3 mt-3">
+        <div className="w-full">
+          <CTextarea
+            name="points"
+            title="Points"
+            placeholder="Points"
+            defaultValue={subscriptionType?.points}
+            loading={!subscriptionType}
+            control={control}
+            error={errors.points}
           />
         </div>
       </div>
